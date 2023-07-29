@@ -8,6 +8,8 @@ Amazon Kinesis: service which is famous for real-time big data processing and in
  Objectives:
  - Get an overview of Amazon Kinesis Streams and key use cases
  - Learn how to use the Kinesis Streams producer SDK 
- - Discover how to use the Kinesis Streams  for analytics and processing and put data in dynmodb 
+ - Discover how to use the Kinesis Streams  for analytics and processing and put data in dynmodb
+
+   
 Requisites :
--Create role with required permissions :so go to the aws console 
+-Create role with required permissions :so go to the aws console  and create roles 
