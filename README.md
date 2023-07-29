@@ -12,4 +12,19 @@ Amazon Kinesis: service which is famous for real-time big data processing and in
 
    
 Requisites :
--Create role with required permissions :so go to the aws console  and create roles 
+-Create role with required permissions :so go to the aws console  and create roles  ![IMG_20230729_213645](https://github.com/DOAAMOHAME/-Kinesis-Data-Stream/assets/75979372/2fdd39d2-f5da-4fc1-8da3-63293ed2486e) 
+-Create data stream in Kinesis.
+-Create AWS Lambda function write data to the stream (producer).
+-Add code to AWS Lambda function to read data from the stream (consumer)
+-create dynmodb
+-Add data to Kinesis data stream 
+
+Results:
+
+-show result with cloud watch
+-push data in dynmodb
+
+
+
+
+
