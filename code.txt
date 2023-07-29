@@ -1,0 +1,41 @@
+Code for producer :##
+import json
+import boto3 
+import base64
+def lambda_handler(event,context):
+    kinesis=boto3.client("kinesis")
+    Stream_name='kinesis_datastream_demo'
+    partition_key='123'
+    filename='source.json'
+
+    with open(filename,'r') as f:
+          data=json.load(f)
+          
+          for record in data:
+              
+              payload=bytes(json.dumps(record), 'utf-8')
+              response = kinesis.put_record(StreamName=stream_name, data=payload, PartitionKey=partition_key)
+              print(response) 
+##consumer#1
+import json
+import boto3 
+import binascii
+
+def lambda_handler(event,context):
+    for record in event['Records']:
+        decode_data=binascii.a2b_base64(record["kinesis"]["data"])
+        data=json.loads(decode_data)
+        print(data)
+        print(data['id'],data['name'],data['age'])
+
+    dynamodb=boto3.resource('dynamodb')
+    table=   dynamodb.Table('kinesis_datastream_customer_demo')
+    item={
+         "id":data['id'],
+         "name":data['name'],
+         "age":data['age'] }
+    table.put_item(Item=item)
+    
+      
+    
+            
